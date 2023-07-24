@@ -26,14 +26,14 @@ trait HasCRUD
         if ($id) {
             $object = $this->findMethod();
             $this->resetQuery();
-
+        }
             $object->setSql("DELETE FROM " . $object->getTableName());
             $object->setWehre('AND', $this->getAttributeName($this->primaryKey) . "= ?");
             $object->addValue($object->primaryKey, $object->{$object->primaryKey});
             return $object->executeQuery();
 
 
-        }
+
     }
 
 
